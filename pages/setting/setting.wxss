@@ -1,0 +1,243 @@
+/* pages/setting/setting.wxss */
+/* 用户信息栏 */
+.userinfobox{
+  height:350rpx;
+  width:100%;
+  background:black;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* 注册按钮 */
+.signinbtn{
+  height:90rpx;
+  width:170rpx;
+  border:10rpx white solid;
+  border-radius: 10rpx;
+  background-color:rgb(255, 20, 20);
+  line-height:90rpx;
+  font-size:35rpx;
+  color:white;
+  margin-left:100rpx;
+  font-weight:500;
+  text-align:center;
+}
+/* 头像 */
+.avatar{
+  height:130rpx;
+  width:130rpx;
+  border-radius:130rpx;
+  background-color:rgb(142, 255, 77);
+  border: 5rpx solid #ffffff;
+  margin-left: 50rpx; 
+}
+.name{
+  margin-left:40rpx;
+  height:130rpx;
+  width:300rpx;
+  font-size:40rpx;
+  line-height: 130rpx;
+  color:#ffffff;
+  
+}
+/* 信息栏 */
+.infobox{
+  margin-top:-60rpx;
+  height:150rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.info{
+  height:150rpx;
+  width:80%;
+  background-color:#ffffff;
+  border-radius:15rpx;
+  box-shadow:rgb(196, 196, 196) 0rpx 0rpx 30rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.infopart{
+  height: 150rpx;
+  width:49.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.infonum{
+  height: 50rpx;
+  width:100%;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 40rpx;
+}
+.infoname{
+  height: 50rpx;
+  width:100%;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 25rpx;
+  color:grey;
+}
+.partline{
+  height: 100rpx;
+  width:1%;
+  background: rgb(223, 222, 222);
+  border-radius: 10rpx;
+}
+/* 下部导航栏 */
+.barbox{
+  height:60px;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bar{
+  box-sizing:border-box;
+  height:50px;
+  width:90%;
+  border:solid 1px rgb(226, 226, 226);
+  border-radius:5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-shadow:rgb(226, 226, 226) 0rpx 0rpx 30rpx 0rpx;
+}
+.bartext{
+  height:50px;
+  width:85%;
+  color:rgb(109, 109, 109);
+  font-size:15px;
+  line-height:45px;
+  padding-left:15px;
+}
+.baricon{
+  height:50px;
+  width:15%;
+  transform: scaleX(0.5);
+  color:rgb(109, 109, 109);
+  font-size:30px;
+}
+
+/* 注册表单 */
+.signinform{
+  position:fixed;
+  top:400rpx;
+  left:50%;
+  z-index: 2;
+  transform: translate(-50%,0);
+  height:540rpx;
+  width:83%;
+  background-color:#ffffff;
+  border-radius:6rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+}
+.phonebox{
+  width:80%;
+  height:100rpx;
+  border:1px solid rgb(223, 223, 223);
+  border-radius: 5rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cancelbox{
+  height:100rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.cancel{
+  height:100rpx;
+  width:50rpx;
+  margin-right: 10rpx;
+  font-size:35rpx;
+  color:grey;
+  line-height: 100rpx;
+  text-align: center;
+}
+.addnum{
+  height:100rpx;
+  width:20%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  color:rgb(104, 104, 104);
+}
+.inputnumber{
+  height:100rpx;
+  width:75%;
+  font-size:35rpx; 
+}
+.resttime{
+  height:100rpx;
+  width:30%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  color:rgb(104, 104, 104);
+}
+.resendbtn{
+  height: 60rpx;
+  width:25%;
+  margin-right:5%;
+  font-size:24rpx;
+  color:white;
+  line-height: 60rpx;
+  background-color:red;
+  text-align: center;
+  border-radius: 5rpx;
+}
+.resendbtnless{
+  height: 60rpx;
+  width:25%;
+  margin-right:5%;
+  font-size:24rpx;
+  color:rgb(109, 109, 109);
+  line-height: 60rpx;
+  background-color:rgb(255, 151, 151);
+  text-align: center;
+  border-radius: 5rpx;
+}
+.inputcode{
+  height:100rpx;
+  width:65%;
+  margin-left: 5%;
+  font-size:35rpx; 
+}
+.submitbtn{
+  height:100rpx;
+  width:80%;
+  margin-top:30rpx;
+  background:rgb(255, 40, 40);
+  border-radius:5rpx;
+  font-size:40rpx;
+  color:white;
+  text-align:center;
+  line-height: 100rpx;
+}
+.submitbtnless{
+  height:100rpx;
+  width:80%;
+  margin-top:30rpx;
+  background:rgb(255, 151, 151);
+  border-radius:5rpx;
+  font-size:40rpx;
+  color:rgb(109, 109, 109);
+  text-align:center;
+  line-height: 100rpx;
+}

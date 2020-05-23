@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/plan/plan",
+    "pages/index/index",
+    "pages/setting/setting",
+    "pages/logs/logs",
+    "pages/date/date"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "药品管理",
+        "background-color":"red"
+      },
+      {
+        "pagePath": "pages/plan/plan",
+        "text": "服药计划"
+      },
+      {
+        "pagePath": "pages/date/date",
+        "text": "服药日志"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

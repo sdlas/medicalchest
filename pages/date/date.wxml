@@ -1,0 +1,17 @@
+<view class="header">服药日志</view>
+<view style="height:80px;"></view>
+<view class="container">
+  <view class="planbox" style="height:{{70+numlist.length*20}}px;background:{{item.did==1?'':'rgb(255, 56, 56);'}}" wx:for="{{datelist}}" wx:key>
+    <view class="time" wx:if="{{item.did==1}}" >服药状态: 已服</view>
+    <view class="time" wx:else="{{item.did==1}}" style="color:white;">服药状态: 未服</view>
+    <view class="time" style="color:{{item.did==0?'white':''}}">服药时间          {{item.time}}</view>
+    <view class="type" style="color:{{item.did==0?'white':''}}">{{item.type}}</view>
+    <view class="numbox" wx:for="{{item.numlist}}" wx:key wx:for-item="cell">
+      <view class="name" style="color:{{item.did==0?'white':''}}">{{cell.name}}</view>
+      <view class="num" style="color:{{item.did==0?'white':''}}">{{cell.num}}</view>
+    </view>
+    <view class="method" style="color:{{item.did==0?'white':''}}">{{item.method}}</view>
+  </view>
+</view>
+
+

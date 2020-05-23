@@ -1,0 +1,11 @@
+<view class="header">仓库</view>
+<view class="container">
+  <view style="height:80px;"></view>
+  <view class="item" wx:for="{{medicinelist}}" wx:key>
+    <view class="infobox">
+      <view class="name">名称：{{item.drugname}}</view>
+      <view class="num">数量：{{item.num}}</view>
+    </view>
+    <view class="add">+</view>
+  </view>
+</view>

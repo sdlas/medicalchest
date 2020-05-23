@@ -1,0 +1,62 @@
+<view class="userinfobox">
+  <view class="signinbtn" bindtap="signin" wx:if="{{!issign}}">注册/登录</view>
+  <view class="avatar" wx:if="{{issign}}" style="background-image:url(https://www.laiad231.cn/image/medicalchestavatar/{{avatar}});background-size:cover;background-cover:true;"></view>
+  <view class="name" wx:if="{{issign}}">{{name}}</view>
+</view>
+<view class="infobox">
+  <view class="info">
+    <view class="infopart">
+      <view class="infonum">0</view>
+      <view class="infoname">待服药计划</view>
+    </view>
+    <view class="partline"></view>
+    <view class="infopart">
+      <view class="infonum">0</view>
+      <view class="infoname">未按时服药次数</view>
+    </view>
+  </view>
+</view>
+<view style="height:80rpx;"></view>
+<view class="barbox">
+  <view class="bar">
+    <view class="bartext">语音管理</view>
+    <view class="baricon">></view>
+  </view>
+</view>
+<view class="barbox">
+  <view class="bar">
+    <view class="bartext">设备连接</view>
+    <view class="baricon">></view>
+  </view>
+</view>
+<view class="barbox">
+  <view class="bar">
+    <view class="bartext">关于我们</view>
+    <view class="baricon">></view>
+  </view>
+</view>
+
+<!-- 注册表单 -->
+
+<form bindsubmit="getcode">
+  <view class="signinform" wx:if="{{showform}}">
+    <view class="cancelbox">
+      <view class="cancel" bindtap="cancelsignin">X</view>
+    </view>
+      <view class="phonebox">
+        <view class="addnum">+86</view>
+        <input class="inputnumber" placeholder="请输入您的手机号" name="phonenumber" bindinput="checknumber" maxlength="11"></input>
+      </view>
+      <button class="submitbtn" wx:if="{{!issend&&rightphone}}" form-type="submit">获取验证码</button>
+      <button class="submitbtnless" wx:if="{{!rightphone&&!issend}}">获取验证码</button>
+    <view class="phonebox" style="margin-top:30rpx;" wx:if="{{issend}}">
+      <input class="inputcode" placeholder="{{codeplaceholder}}" placeholder-style="font-size:30rpx;" maxlength="4" bindinput="checkcode" name="code" value="{{code}}"></input>
+      <view class="resttime" wx:if="{{!timeout}}">{{resttime}}s</view>
+      <view class="resendbtn" wx:if="{{timeout&&rightphone}}" bindtap="resendcode">重新发送</view>
+      <view class="resendbtnless" wx:if="{{timeout&&!rightphone}}">重新发送</view>
+    </view>
+    <button class="submitbtn" wx:if="{{issend&&rightcode&&!timeout}}" form-type="submit">确认</button>
+    <view class="submitbtnless" wx:if="{{issend&&(!rightcode||timeout)}}">确认</view>
+  </view>
+  <view class="mask" wx:if="{{showform}}"></view>
+</form>

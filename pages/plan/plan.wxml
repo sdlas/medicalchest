@@ -1,0 +1,77 @@
+<view class="header" style="z-index:4">服药计划</view>
+<view style="height:80px;"></view>
+<scroll-view scroll-y="true" style="height:100vh;">
+  <view class="container">
+    <view class="planbox" style="height:{{60+numlist.length*20}}px" wx:for="{{planlistarr}}" wx:key>
+      <view class="time">服药时间          {{item.time}}</view>
+      <view class="numbox" wx:for="{{item.numlist}}" wx:key wx:for-item="cell">
+        <view class="name">{{cell.name}}</view>
+        <view class="num">{{cell.num}}</view>
+        <view class="type">{{cell.type}}</view>
+      </view>
+      <view class="method">{{item.method}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<!-- 悬浮按钮 -->
+<view class="shopcarbtn" style="z-index:1" bindtap="addplan">
+  <image class="shopcarimage" src="../../images/pencilicon.png"></image>
+</view>
+
+<!-- 表单填写 -->
+<view class="mask" style="z-index:2" wx:if="{{showform}}"></view>
+<form wx:if="{{showform}}" bindsubmit="confirmplan">
+  <view class="formbox" style="z-index:3">
+    <view class="title">{{plantitle}}</view>
+    <scroll-view style="width:100%;height:800rpx;" scroll-y="true">
+      <view class="formcontainer" wx:if="{{!editplan}}">
+        <view class="choosebox">
+          <view class="choosetitle">服药时间</view>
+          <picker class="choosecontent" range="{{pilltimearr}}">{{pilltime}}</picker>
+        </view>
+        <view class="choosebox">
+          <view class="choosetitle">提醒方式</view>
+          <picker class="choosecontent" range="{{noticemethodarr}}">{{noticemethod}}</picker>
+        </view>
+        <view class="choosebox">
+          <view class="choosetitle">服药计划</view>
+          <view class="choosecontent" style="color:red" bindtap="editplan">编辑</view>
+        </view>
+        <view class="planboard">
+          <view style='height:40rpx'></view>
+          <view class="planitem">
+            <view class="planitemname">药品名称</view>
+            <view class="planitemnum">服药数量</view>
+            <view class="planitemmethod">服药方式</view>
+          </view>
+          <view class="planitem">
+            <view class="planitemname">阿司匹林</view>
+            <view class="planitemnum">10t</view>
+            <view class="planitemmethod">口服</view>
+          </view>
+          <view class="planitem">
+            <view class="planitemname">热水</view>
+            <view class="planitemnum">10t</view>
+            <view class="planitemmethod">口服</view>
+          </view>
+        </view>
+        <button class="confirmbtn" form-type="submit">确认</button>
+      </view>
+      <view class="formcontainer" wx:if="{{editplan}}">
+        <view class="edititem">
+          <view class="edititemname">药品名称</view>
+          <view class="edititemnum">服药数量</view>
+          <view class="edititemmethod">服药方式</view>
+        </view>
+        <view class="edititem">
+          <view class="edititemname">阿斯匹林</view>
+          <input class="edititemnum" value="10t"></input>
+          <picker class="edititemmethod" range="{{takemethodarr}}">口服</picker>
+        </view>
+        <view class="confirmbtn" bindtap="confirm">确认</view>
+      </view>
+    </scroll-view>
+  </view>
+</form>

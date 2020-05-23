@@ -1,0 +1,48 @@
+.container{
+  width:100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items:center;
+}
+.item{
+  margin-top:10px;
+  height:80px;
+  width:90%;
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow:rgb(226, 226, 226) 0rpx 0rpx 30rpx 0rpx;
+  border-radius:2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  background-color:rgb(255, 255, 255);
+}
+.infobox{
+  height:80px;
+  width:80%;
+}
+.name{
+  font-size:15px;
+  padding-left: 20px;
+  line-height:40px;
+  height:40px;
+  width:100%;
+  color:rgb(109, 109, 109);
+}
+.num{
+  font-size:15px;
+  padding-left: 20px;
+  line-height: 40px;
+  height:40px;
+  width:100%;
+  color:rgb(109, 109, 109);
+}
+.add{
+  height:80px;
+  width:20%;
+  text-align: center;
+  line-height: 80px;
+  font-size:30px;
+  color:rgb(109, 109, 109);
+}
