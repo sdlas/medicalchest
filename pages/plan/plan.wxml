@@ -2,9 +2,9 @@
 <view style="height:80px;"></view>
 <scroll-view scroll-y="true" style="height:100vh;">
   <view class="container">
-    <view class="planbox" style="height:{{60+numlist.length*20}}px" wx:for="{{planlistarr}}" wx:key>
+    <view class="planbox" style="height:{{60+numlist.length*20}}px" wx:for="{{planlistarr}}" wx:key="index" data-id="{{item.id}}" bindtap="edititem">
       <view class="time">服药时间          {{item.time}}</view>
-      <view class="numbox" wx:for="{{item.numlist}}" wx:key wx:for-item="cell">
+      <view class="numbox" wx:for="{{item.numlist}}" wx:key="index" wx:for-item="cell">
         <view class="name">{{cell.name}}</view>
         <view class="num">{{cell.num}}</view>
         <view class="type">{{cell.type}}</view>
@@ -29,48 +29,55 @@
       <view class="formcontainer" wx:if="{{!editplan}}">
         <view class="choosebox">
           <view class="choosetitle">服药时间</view>
-          <picker class="choosecontent" range="{{pilltimearr}}">{{pilltime}}</picker>
+          <picker class="choosecontent" range="{{pilltimearr}}" bindchange="timechange">{{pilltime}}</picker>
         </view>
         <view class="choosebox">
           <view class="choosetitle">提醒方式</view>
-          <picker class="choosecontent" range="{{noticemethodarr}}">{{noticemethod}}</picker>
+          <picker class="choosecontent" range="{{noticemethodarr}}" bindchange="methodchange">{{noticemethod}}</picker>
         </view>
         <view class="choosebox">
           <view class="choosetitle">服药计划</view>
-          <view class="choosecontent" style="color:red" bindtap="editplan">编辑</view>
+          <view class="choosecontent" style="color:red" bindtap="editplan">{{pillmedlist!=0?'编辑':'添加'}}</view>
         </view>
-        <view class="planboard">
+        <view class="planboard" wx:if="{{pillmedlist!=0}}">
           <view style='height:40rpx'></view>
           <view class="planitem">
             <view class="planitemname">药品名称</view>
             <view class="planitemnum">服药数量</view>
             <view class="planitemmethod">服药方式</view>
           </view>
-          <view class="planitem">
-            <view class="planitemname">阿司匹林</view>
-            <view class="planitemnum">10t</view>
-            <view class="planitemmethod">口服</view>
-          </view>
-          <view class="planitem">
-            <view class="planitemname">热水</view>
-            <view class="planitemnum">10t</view>
-            <view class="planitemmethod">口服</view>
+          <view class="planitem" wx:for="{{pillmedlist}}" wx:key>
+            <view class="planitemname">{{item.name}}</view>
+            <view class="planitemnum">{{item.num}}</view>
+            <view class="planitemmethod">{{item.type}}</view>
           </view>
         </view>
         <button class="confirmbtn" form-type="submit">确认</button>
       </view>
-      <view class="formcontainer" wx:if="{{editplan}}">
+      <view class="formcontainer" wx:if="{{editplan&&!showdruglist}}">
         <view class="edititem">
           <view class="edititemname">药品名称</view>
           <view class="edititemnum">服药数量</view>
           <view class="edititemmethod">服药方式</view>
         </view>
-        <view class="edititem">
-          <view class="edititemname">阿斯匹林</view>
-          <input class="edititemnum" value="10t"></input>
-          <picker class="edititemmethod" range="{{takemethodarr}}">口服</picker>
+        <view class="edititem" wx:for="{{pillmedlist}}" wx:key>
+          <view class="edititemname">{{item.name}}</view>
+          <input class="edititemnum" value="{{item.num}}" data-id="{{index}}"bindinput="numchange"></input>
+          <picker class="edititemmethod" range="{{takemethodarr}}" data-id="{{index}}" bindchange="typechange">{{item.type}}</picker>
+          <view class="deletebtn" data-id="{{index}}" bindtap="deletemed">删除</view>
         </view>
+        <view class="adddrugbtn" bindtap="addnewdrug">+</view>
         <view class="confirmbtn" bindtap="confirm">确认</view>
+      </view>
+      <view class="druglistbox" wx:if="{{showdruglist}}">
+        <view class="drugitem">
+          <view class="drugname">药品名称</view>
+          <view class="drugnum">药品库存量</view>
+        </view>
+        <view class="drugitem" wx:for="{{druglist}}" wx:key bindtap="choosedrug" data-id="{{index}}">
+          <view class="drugname">{{item.name}}</view>
+          <view class="drugnum">{{item.num}}</view>
+        </view>
       </view>
     </scroll-view>
   </view>
